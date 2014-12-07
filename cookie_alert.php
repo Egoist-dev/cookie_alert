@@ -27,3 +27,14 @@ function install() {
 		add_option("ca_db_version", $ca_db_version
 	}
 }
+
+function uninstall() {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$tablename = $prefix . "cookie_alert";
+	$query = 'drop table '.$tablename;
+	$wpdb->query($query);
+}
+
+register_activation_hook(__FILE__, 'install');
+register_deactivation_hook(__FILE__, 'uninstall');
