@@ -17,6 +17,7 @@ function install() {
 	if ($wpdb->get_var("show tables like '" . $tablename . "'") != $tablename) {
 		$query = "create table " . $tablename . " (
 		id int(9) not null auto_increment,
+		name varchar(250) not null,
 		graphic varchar(250),
 		text varchar(255) not null,
 		primary key (id)
@@ -38,3 +39,5 @@ function uninstall() {
 
 register_activation_hook(__FILE__, 'install');
 register_deactivation_hook(__FILE__, 'uninstall');
+
+
