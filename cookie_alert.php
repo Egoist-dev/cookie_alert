@@ -24,7 +24,7 @@ function install() {
 
 		$wpdb->query($query);
 
-		add_option("ca_db_version", $ca_db_version
+		add_option("ca_db_version", $ca_db_version);
 	}
 }
 
